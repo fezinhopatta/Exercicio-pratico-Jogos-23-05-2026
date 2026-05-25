@@ -1,0 +1,43 @@
+@baseUrl = http://localhost:3000
+
+### Cadastro
+POST {{baseUrl}}/generos
+Content-Type: application/json
+
+{
+    "nome": "RPG"
+}
+
+### Cadastro plataforma
+POST {{baseUrl}}/plataformas
+Content-Type: application/json
+
+{
+  "nome": "XBOX"
+}
+### cadastro jogo
+POST {{baseUrl}}/jogos
+Content-Type: application/json
+
+{
+  "titulo": "The Witcher 2",
+  "idGenero": 1
+}
+
+### Relacionar o Jogo com Plataformas
+POST {{baseUrl}}/jogos/1/plataformas
+Content-Type: application/json
+
+{
+  "plataformas": [1, 2]
+}
+
+
+### Listar Gêneros (e os jogos de cada um)
+GET {{baseUrl}}/generos
+
+### Listar Plataformas
+GET {{baseUrl}}/plataformas
+
+### Listar Jogos
+GET {{baseUrl}}/jogos

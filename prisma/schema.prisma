@@ -1,0 +1,28 @@
+datasource db {
+  provider = "sqlite"
+  url = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Genero {
+  id Int @id @default(autoincrement())
+  nome String
+  jogos Jogo[]
+}
+
+model Plataforma {
+  id Int @id @default(autoincrement())
+  nome String
+  jogos Jogo[]
+}
+
+model Jogo {
+  id Int @id @default(autoincrement())
+  titulo String
+  idGenero Int
+  genero Genero @relation(fields: [idGenero], references: [id])
+  plataformas Plataforma[]
+}
